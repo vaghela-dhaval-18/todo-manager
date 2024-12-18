@@ -1,0 +1,11 @@
+.todo-list-container{
+    display: flex;
+    gap:20px;
+}
+.action-btn{
+    display: flex;
+    gap:10px;
+}
+.edit-icon,.checkbox:hover{
+    cursor: pointer ;
+}

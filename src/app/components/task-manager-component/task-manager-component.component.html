@@ -1,0 +1,82 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header text-center bg-primary text-white">
+      <h3>Advanced TODO Manager</h3>
+    </div>
+    <div class="row text-center mt-3">
+      <div class="col">
+        <h5 class="text-primary">{{ totalTasks }}</h5>
+        <p>Total</p>
+      </div>
+      <div class="col">
+        <h5 class="text-primary">{{ pendingTasks }}</h5>
+        <p>Pending</p>
+      </div>
+      <div class="col">
+        <h5 class="text-primary">{{ completedTasks }}</h5>
+        <p>Completed</p>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <app-task-input-component
+        [taskToEdit]="taskToEdit"
+        (taskAdded)="addTask($event)"
+        (taskEdited)="saveTask($event)"
+      ></app-task-input-component>
+
+      <!-- Tabs Section -->
+      <!-- Custom Tabs -->
+      <div class="tabs">
+        <span
+          class="tab"
+          [class.active]="tab === 'all'"
+          (click)="setFilter('all')"
+        >
+          All
+        </span>
+        <span
+          class="tab"
+          [class.active]="tab === 'active'"
+          (click)="setFilter('active')"
+        >
+          Active
+        </span>
+        <span
+          class="tab"
+          [class.active]="tab === 'completed'"
+          (click)="setFilter('completed')"
+        >
+          Completed
+        </span>
+      </div>
+
+
+      <app-task-list-component
+        [todoList]="filteredList"
+        (taskDeleted)="deleteTask($event)"
+        (taskEdited)="editTask($event)"
+      ></app-task-list-component>
+    </div>
+
+    <div class="card-footer text-muted footer-divs">
+      <div><span>{{ filteredList.length }} items left</span></div>
+      <div class="footer-btns">
+        <button
+          type="button"
+          class="btn btn-danger btn-sm"
+          (click)="clearCompleted()"
+        >
+          Clear Completed
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary btn-sm"
+          (click)="archiveAll()"
+        >
+          Archive All
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

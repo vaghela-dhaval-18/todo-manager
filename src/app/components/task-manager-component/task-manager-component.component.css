@@ -1,0 +1,48 @@
+/* Tabs Container */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Individual Tab */
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #007bff;
+    border: 1px solid transparent;
+    border-radius: 5px 5px 0 0;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+  }
+  
+  /* Hover State */
+  .tab:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Active Tab */
+  .tab.active {
+    background-color: #fff;
+    border-color: #007bff #007bff #fff;
+    font-weight: bold;
+    color: #33393f;
+  }
+  
+  /* Reset hover effect for active tabs */
+  .tab.active:hover {
+    background-color: #fff;
+  }
+  
+.footer-divs{
+    padding: 20px 40px 20px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-btns{
+    display: flex;
+    gap:20px;
+}

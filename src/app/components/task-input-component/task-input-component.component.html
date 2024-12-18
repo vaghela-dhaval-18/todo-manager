@@ -1,0 +1,35 @@
+<form [formGroup]="formData">
+<div class="input-group mb-3">
+   
+            <div class="col-5 m-2">
+                <input formControlName="taskTitle" placeholder="What needs to be done?" class="form-control" />
+                @if (formData.controls["taskTitle"].errors?.["required"] && formData.controls["taskTitle"].touched) {
+                    <span class="text-danger">Title is required!</span>
+                }
+                @if (formData.controls["taskTitle"].errors?.["minlength"] && formData.controls["taskTitle"].touched) {
+                    <span class="text-danger">Title must have at least 3 charcters!</span>
+                }
+            </div>
+            <div class="col-2 m-2">
+                <select class="form-control" formControlName="taskType" name="taskType">
+                    <option value="Work">Work</option>
+                    <option value="Learning">Learning</option>
+                    <option value="Extra activities">Extra activities</option>
+                </select>   
+                @if (formData.controls["taskType"].errors?.["required"] && formData.controls["taskType"].touched) {
+                    <span class="text-danger">Type is required!</span>
+                }
+            </div>
+            <div class="col-2 m-2">
+                <input type="date" formControlName="taskDate" class="form-control" />
+                @if (formData.controls["taskDate"].errors?.["required"] && formData.controls["taskDate"].touched) {
+                    <span class="text-danger">Date is required!</span>
+                }
+            </div>
+            <div class="col-2 m-2">
+                <button [disabled]="!formData.valid" class="btn btn-primary" (click)="onSaveTask()">{{ taskToEdit ? 'Update Task' : 'Add Task' }}</button>
+            </div>
+            
+            
+        </div>
+    </form>
